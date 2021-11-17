@@ -10,9 +10,13 @@
         <div class=''>
           <% @restaurant.reviews.each do |review|%>
           <div class='border rounded m-1'>
+          <i class="fab fa-500px"></i>
             <p><%= review.content%></p>
             <p>Rating : <%= review.rating%>/5</p>
-          </div>
+            <i class='fas fa-user-times text-danger' ></i>
+            <%=icon('fas', 'fa-star') %>
+            <%=icon('far', 'fa-star') %>
+                  </div>
           <%end%>
           <div class='d-flex'>
             <%= link_to 'Add A review', new_restaurant_review_path(@restaurant), class:'btn btn-primary btn-sm m-3'%>
@@ -22,7 +26,7 @@
       </div>
       <!-- <%# <p>Rating : (<%= @restaurant.rating%>/5)</p> %> -->
     </div>
-    <%# <div class="img-restaurant">
+    <%# <div class="img-restaurant"   <i class="fas fa-star"></i> star solid /// <i class="far fa-star"></i>>
 
     </div> %>
 
