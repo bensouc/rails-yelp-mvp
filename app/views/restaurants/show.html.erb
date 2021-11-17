@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>Restaurant Details:</h1>
+  <div class='p-1 col-6 d-flex justify-content-between border border-2 border-secondary rounded align-items-center'>
+    <div class="detail-restaurant card w-100">
+      <%= image_tag "restaurant.jpeg", class:'card-img-top'  %>
+      <div class="card-body">
+        <p class=''>Names : <%= @restaurant.name%></p>
+        <p>Adress : <%= @restaurant.address%></p>
+        <p>Category : <%= @restaurant.category%></p>
+        <div class=''>
+          <% @restaurant.reviews.each do |review|%>
+          <div class='border rounded m-1'>
+            <p><%= review.content%></p>
+            <p>Rating : <%= review.rating%>/5</p>
+          </div>
+          <%end%>
+          <div class='d-flex'>
+            <%= link_to 'Add A review', new_restaurant_review_path(@restaurant), class:'btn btn-primary btn-sm m-3'%>
+            <%= link_to 'Edit restaurant', edit_restaurant_path, class:'btn btn-primary btn-sm m-3'%>
+          </div>
+        </div>
+      </div>
+      <!-- <%# <p>Rating : (<%= @restaurant.rating%>/5)</p> %> -->
+    </div>
+    <%# <div class="img-restaurant">
+
+    </div> %>
+
+  </div>
+  <div>
+
+  <%= link_to 'Back Restaurant List', restaurants_path, class:'btn btn-secondary btn-sm m-3'%>
+  </div>
+
+</div>

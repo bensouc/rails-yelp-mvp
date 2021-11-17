@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Mes Restaurants</h1>
+  <ul class='list-unstyled col-6' >
+  <% @restaurants.each do |restaurant|%>
+    <li class ='list-group-item d-flex justify-content-between fs-4 '>
+      <%# <%= restaurant.name%>
+      <%= link_to restaurant.name.capitalize, restaurant_path(restaurant), class:'fs-4 text-dark' %>
+      <%= link_to restaurant_path(restaurant),
+      method: :delete,
+      data: { confirm: "Are you sure?" } do %>
+      <i class="fas fa-minus-square"></i>
+    <%end%>
+    </li>
+  <%end%>
+  </ul>
+  <div class="add">
+  <%= link_to 'Add a restaurant', new_restaurant_path,
+    class: 'btn btn-primary btn-sm m-3'%>
+  </div>
+</div>
